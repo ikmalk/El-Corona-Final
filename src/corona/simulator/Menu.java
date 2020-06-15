@@ -106,6 +106,7 @@ public class Menu extends MouseAdapter{
 				hud.setInfected(0);
 				hud.setRemoved(0);
 				hud.setDay(0);
+				hud.reset();
 				InfectionSimulator.State = STATE.Menu;
 				
 								

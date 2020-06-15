@@ -140,7 +140,11 @@ public class InfectionSimulator extends Canvas implements Runnable {
 														    //basically we are waiting for  enough time to pass so we 
 														    // have about 60 frames per one second interval determined to the nanosecond (accuracy)
 														    // once this pause is done we render the next frame
-		    tick();  
+		    try{
+		    	tick();  
+		    }catch(NullPointerException e){
+		    	
+		    }
 		    delta--;  										// lower our delta back to 0 to start our next frame wait
 		   }
 		   if(running){
@@ -161,16 +165,12 @@ public class InfectionSimulator extends Canvas implements Runnable {
 	 * -This is the method that will call all the classes' tick method
 	 * -tick method responsible for updating all the value of variable in the class
 	 */		
-	private void tick(){
+	private void tick() throws NullPointerException{  //sometime the handler class will cause a null pointer exception when pressing the back button
 		handler.tick();
 		handler2.tick();
 		handlerPlace.tick();
-		if(State == STATE.Simulation) {
-			try {
-			spawner.tick();
-			}catch(NullPointerException e) {
-				
-			}
+		if(State == STATE.Simulation) {			
+			spawner.tick();			
 			hud.tick();
 		}
 		else if(State == STATE.Menu) {
@@ -224,14 +224,5 @@ public class InfectionSimulator extends Canvas implements Runnable {
 		return fps;
 	}
 	
-	public static float clamp(float var, float min, float max) {
-		if(var >= max)
-			return var = max;
-		else if(var <= min) 
-			return min;
-		else 
-			return var;
-		
-	}
 
 }

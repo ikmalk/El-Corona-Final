@@ -69,9 +69,11 @@ public class Spawn {
 			if(added&&hud.getDay()==dayInfected) {
 				People temp = new People(infected,g.nextInt(600),g.nextInt(600),TYPE.People,handler,handler2,place,HEALTH.Infected,hud,multiplier,radius,dayQ);
 				temp.setDayInfected(dayInfected);
+				temp.append();
 				handler.addObject(temp);
 				hud.setInfected(hud.getInfected()+1);
 				added = false;
+				
 			}
 		}
 

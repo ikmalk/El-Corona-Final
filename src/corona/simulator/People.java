@@ -37,6 +37,7 @@ public class People extends Item{
 	private double immunity;
 	private int event;
 	private String[][] activities;
+	private Person person;
 	
 
 	
@@ -51,10 +52,11 @@ public class People extends Item{
 		this.multiplier = multiplier;
 		this.radius=radius;
 		this.dayQ = dayQ;
+		this.person = person;
 		event = hud.getEvent();
 		activities = person.getEvent();
-		immunity = person.getImmunity()*this.multiplier/200;
-		chance = (int)(1000*immunity);
+		immunity = person.getImmunity()/200;
+		chance = (int)(1000*immunity*this.multiplier);
 		for(int i=0;i<place.length;i++) {
 			if(place[i].getName().equals(activities[(hud.getDay())%14][hud.getEvent()])) {
 				target = place[i];
@@ -84,7 +86,7 @@ public class People extends Item{
 
 
 
-	public void tick() {
+	public void tick(){
 		if(hud.getDay()>0) {
 			if(health==HEALTH.Infected) {
 				
@@ -169,6 +171,7 @@ public class People extends Item{
 									dayInfected = hud.getDay();
 									hud.setInfected(hud.getInfected()+1);
 									hud.setSuspected(hud.getSuspected()-1);
+									hud.append(person.getID(), hud.getDay(), target.getName());
 									return;
 								}
 							}
@@ -179,11 +182,12 @@ public class People extends Item{
 						People tempP = (People)iterator.next();
 						if(tempP.getHealth()==HEALTH.Infected) {
 							if(getBounds().intersects(tempP.getBounds())) {
-								if(r.nextInt(600)<chance) {    //temporary, will get the person's immunity later
+								if(r.nextInt(2000)<chance) {    
 									setHealth(HEALTH.Infected);
 									dayInfected = hud.getDay();
 									hud.setInfected(hud.getInfected()+1);
-									hud.setSuspected(hud.getSuspected()-1);															
+									hud.setSuspected(hud.getSuspected()-1);
+									hud.append(person.getID(), hud.getDay(), target.getName());
 								}
 							}
 						}
@@ -211,8 +215,19 @@ public class People extends Item{
 			x += velX;
 			y += velY;
 			
-			float diffX = x - target.getX()-20;
-			float diffY = y - target.getY()-20;
+			int l = 15;
+			if(target.getName().equals("Hospital")) {
+				l=80;
+			}
+			else if(target.getName().equals("Park")) {
+				l=60;
+			}
+			else if(target.getName().equals("PoliceStation")) {
+				l=40;
+			}
+			
+			float diffX = x - target.getX()-l;
+			float diffY = y - target.getY()-l;
 			/*
 			 * The equation to get the place coordinate
 			 */
@@ -273,8 +288,8 @@ public class People extends Item{
 			x += velX;
 			y += velY;
 			
-			float diffX = x - target.getX()-20;
-			float diffY = y - target.getY()-20;
+			float diffX = x - target.getX()-55;
+			float diffY = y - target.getY()-55;
 			/*
 			 * The equation to get the place coordinate
 			 */
@@ -291,6 +306,10 @@ public class People extends Item{
 	
 	public void setDayInfected(int dayInfected) {
 		this.dayInfected = dayInfected;
+	}
+	
+	public void append() {
+		hud.append(person.getID(), hud.getDay(), target.getName());
 	}
 	
 }

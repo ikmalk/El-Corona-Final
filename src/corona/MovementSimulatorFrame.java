@@ -240,20 +240,7 @@ public class MovementSimulatorFrame extends JFrame{
 		next.setText("Next");
 		topPanel.add(next);
 		
-//		showMap = new JButton();
-//		sl_topPanel.putConstraint(SpringLayout.NORTH, next, 0, SpringLayout.NORTH, showMap);
-//		sl_topPanel.putConstraint(SpringLayout.SOUTH, next, 0, SpringLayout.SOUTH, showMap);
-//		sl_topPanel.putConstraint(SpringLayout.EAST, next, -6, SpringLayout.WEST, showMap);
-//		sl_topPanel.putConstraint(SpringLayout.NORTH, showMap, 75, SpringLayout.NORTH, topPanel);
-//		sl_topPanel.putConstraint(SpringLayout.WEST, showMap, 494, SpringLayout.WEST, topPanel);
-//		sl_topPanel.putConstraint(SpringLayout.SOUTH, showMap, 106, SpringLayout.NORTH, topPanel);
-//		sl_topPanel.putConstraint(SpringLayout.EAST, showMap, 598, SpringLayout.WEST, topPanel);
-//		showMap.setFont(new Font("Tahoma", Font.BOLD, 12));
-//		showMap.setText("Show Map");
-//		topPanel.add(showMap);
-		
-
-		
+				
 		//Will show the data of person
 		result = new JTextArea("",5,5);
 		result.setLocation(37, 128);

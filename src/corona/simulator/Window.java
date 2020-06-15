@@ -12,6 +12,8 @@ public class Window extends Canvas{
 	 * JFrame for the simulator
 	 */
 	
+	
+	
 	public Window(int width, int height, String title, InfectionSimulator simulator) {
 		JFrame frame = new JFrame(title);
 						

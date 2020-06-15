@@ -19,6 +19,7 @@ public class HUD {
 	private int count;
 	private int fps;
 	private int event;
+	private LogUpdate log;
 
 	
 	public HUD() {
@@ -28,11 +29,13 @@ public class HUD {
 		day = 0;
 		count = 0;
 		event = 0;
-
-
+		log = null;
 	}
 	
 	public void tick() {
+		if(day==0)
+			if(log==null)
+				setLog();
 		if(day>0) {
 			// one day is equal to 1500 ticks
 			if(count==0)
@@ -46,8 +49,17 @@ public class HUD {
 				day++;
 				count=0;
 			}
+			
 		}
 		
+		
+	}
+	
+	private void setLog() {
+		log = new LogUpdate();
+		log.setSize(285,330);
+		log.setVisible(true);
+		log.reset();
 		
 	}
 	
@@ -70,7 +82,15 @@ public class HUD {
 		
 	}
 	
+	public void append(int name,int day,String building) {
+		log.setLog(name,day,building);
+	}
 	
+	public void reset() {
+		try {
+		log.reset();
+		}catch(NullPointerException e) {}
+	}
 	
 	public void setSuspected(int suspected) {
 		this.suspected = suspected;
