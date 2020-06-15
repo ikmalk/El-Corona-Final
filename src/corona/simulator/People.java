@@ -63,19 +63,6 @@ public class People extends Item{
 			}
 		}
 
-		
-			
-		
-
-//		for(int i = 0;i<place.length;i++) {
-//			if(place[i].getName().equals("Hospital")) {
-//				target = place[i];
-//				break;
-//			}
-//				
-//		}
-		
-
 	}
 	
 	public void setHealth(HEALTH health) {
@@ -224,8 +211,8 @@ public class People extends Item{
 			x += velX;
 			y += velY;
 			
-			float diffX = x - target.getX() - 10;
-			float diffY = y - target.getY() - 10;
+			float diffX = x - target.getX()-20;
+			float diffY = y - target.getY()-20;
 			/*
 			 * The equation to get the place coordinate
 			 */
@@ -286,8 +273,8 @@ public class People extends Item{
 			x += velX;
 			y += velY;
 			
-			float diffX = x - target.getX() - 10;
-			float diffY = y - target.getY() - 10;
+			float diffX = x - target.getX()-20;
+			float diffY = y - target.getY()-20;
 			/*
 			 * The equation to get the place coordinate
 			 */

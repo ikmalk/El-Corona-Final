@@ -63,6 +63,10 @@ public class HUD {
 		g.drawString("Infected: " + infected, InfectionSimulator.WIDTH-222, 94);
 		g.drawString("Removed: "+removed, InfectionSimulator.WIDTH-222, 124);
 		
+		if(day>0&&infected==0)
+			g.drawString("Eradication successful", InfectionSimulator.WIDTH-227, 334);
+
+		
 		
 	}
 	
