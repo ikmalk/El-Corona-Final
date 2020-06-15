@@ -56,7 +56,7 @@ public class MovementSimulatorAlgorithm {
         this.frame = frame;
         this.map = map;
         initiate();
-//      writeLogFile();
+        writeLogFile();
 
     }
     
