@@ -14,10 +14,10 @@ public class People extends Item{
 	 * Created at 11/6/2020
 	 * -This is the people class
 	 * -It will have a String[][] event that will determine the movement of the people(not done)
-	 * -It will get the Place that have the same name as in the event and get the place coordinate and and went to that place(need String[][] event)
+	 * -It will get the Place that have the same name as in the event and get the place coordinate and and went to that place
 	 * -Have 3 states, Suspected, Infected, Removed
 	 * -Suspected will become Infected if collides with Infected INSIDE the place
-	 * -Infected becomes Removed after 14 days
+	 * -Infected becomes Removed after 5 days
 	 * 
 	 */
 	
