@@ -72,10 +72,6 @@ public class InfectionSimulator extends Canvas implements Runnable {
 		
 		new Window(WIDTH, HEIGHT, "Simulator", this);
 		
-		/*
-		 * Need code for list																		
-		 */
-		
 	}
 	
 	/*
